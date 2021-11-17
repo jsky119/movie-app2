@@ -27,6 +27,7 @@ const Header = styled.header`
   align-items: center;
   width: 100%;
   height: 40vh;
+  background-image: linear-gradient(120deg, #03a9f4, #b3e5fb);
 `;
 
 const Title = styled.h1`
@@ -40,10 +41,18 @@ const Subtitle = styled.h3`
 `;
 
 const Loading = styled.div`
-  margin-top: 10px;
+  margin-top: 50px;
+  font-size: 30px;
 `;
 
-const Movies = styled.div``;
+const Movies = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+  width: 60%;
+  position: relative;
+  top: -50px;
+`;
 
 export default () => {
   const { loading, data } = useQuery(GET_MOVIES);
