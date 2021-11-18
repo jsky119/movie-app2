@@ -11,7 +11,7 @@ const GET_MOVIE = gql`
       medium_cover_image
       language
       rating
-      summary
+      description_full
       genres
     }
   }
@@ -26,13 +26,9 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Loading = styled.div`
-  color: black;
-  font-size: 30px;
-`;
-
 const Column = styled.div`
   margin-left: 10px;
+  width: 50%;
 `;
 const Title = styled.h1`
   font-size: 40px;
@@ -42,8 +38,18 @@ const Subtitle = styled.h4`
   font-size: 25px;
   margin-bottom: 10px;
 `;
-const Summary = styled.p`
-  font-size: 10px;
+const Description = styled.p`
+  width: 550px;
+  font-size: 20px;
+`;
+
+const Poster = styled.div`
+  width: 30%;
+  height: 50%;
+  background-image: url(${(props) => props.bg});
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 `;
 
 export default () => {
@@ -60,10 +66,11 @@ export default () => {
             <Subtitle>
               {data.movie.rating} · {data.movie.genres}
             </Subtitle>
-            <Summary>{data.movie.summary}</Summary>
+            <Description>{data.movie.description_full}</Description>
           </>
         )}
       </Column>
+      <Poster bg={data?.movie?.medium_cover_image}></Poster>
     </Container>
   );
 };
