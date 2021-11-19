@@ -48,10 +48,10 @@ const Loading = styled.div`
 const Movies = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 125px;
-  width: 60%;
+  grid-gap: 75px;
+  width: 80%;
   position: relative;
-  top: 50px;
+  top: -50px;
 `;
 
 export default () => {
