@@ -60,14 +60,11 @@ export default () => {
     <Container>
       <Column>
         <Title>{loading ? "loading..." : data.movie.title}</Title>
-        {!loading && data.movie && (
-          <>
-            <Subtitle>
-              {data.movie.rating} · {data.movie.genres}
-            </Subtitle>
-            <Description>{data.movie.description_full}</Description>
-          </>
-        )}
+        <Subtitle>
+          {data?.movie?.rating} · {data?.movie?.genres} ·{" "}
+          {data?.movie?.language}
+        </Subtitle>
+        <Description>{data?.movie?.description_full}</Description>
       </Column>
       <Poster bg={data?.movie?.medium_cover_image}></Poster>
     </Container>
